@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PikPazar</title>
     <link rel="stylesheet" type="text/css" href="E-Ticaret.css">
+    <script>
+        function geceModunaGec() {
+            document.body.classList.add('gece-modu');
+            localStorage.setItem('mod', 'gece');
+        }
+
+        function gunduzModunaGec() {
+            document.body.classList.remove('gece-modu');
+            localStorage.setItem('mod', 'gunduz');
+        }
+
+        // Sayfa yüklendiğinde kullanıcının tercihini kontrol et
+        window.onload = function() {
+            if (localStorage.getItem('mod') === 'gece') {
+                geceModunaGec();
+            }
+        };
+    </script>
 </head>
 <body>
     <?php include("partials/header.php"); ?>
