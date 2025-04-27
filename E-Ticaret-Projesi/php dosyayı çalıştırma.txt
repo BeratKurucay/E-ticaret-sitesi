@@ -1,1 +1,0 @@
-https://www.apachefriends.org/ bu programı kur sonrasında programdaki  mysql çalıştır https://localhost/E-Ticaret-Projesi/ bu adrese tarayıcı ile gir web sitesi çalışıcak sorun olursa sms ya da mail atabilirsin
