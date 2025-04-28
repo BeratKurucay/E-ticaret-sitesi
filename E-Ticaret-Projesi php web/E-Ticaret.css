@@ -1,289 +1,243 @@
 #markaFont {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #FFD700;
-    padding: 15px 5%;
-    width: %;
-    max-width: 1400px;
-    height: 100px;
-    margin: 0 auto;
-    gap: 20px;
-}
-
-#marka {
-    font-family: 'Anton', sans-serif;
-    font-size: 64px;
-    color: white;
-    text-shadow: -4px -4px 0 black,
-                  4px -4px 0 black,
-                 -4px  4px 0 black,
-                  4px  4px 0 black;
-    flex-shrink: 0;
-}
-
-#slogan {
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
-    text-shadow: -1px -1px 0 black,
-                  1px -1px 0 black,
-                 -1px  1px 0 black,
-                  1px  1px 0 black;
-    flex-shrink: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.arama-cubugu {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    transition: width 0.3s ease;
-    flex-grow: 1;
-}
-
-.arama-cubugu-input {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 2px solid #333;
-    width: 200px;
-    margin-top: 5px;
-    transition: width 0.3s ease;
-}
-
-.arama-cubugu-input:hover {
-    width: 350px;
-}
-
-.arama-cubugu-input::placeholder {
-    color: #aaa;
-}
-
-.category-menu {
-    background-color: #808080;
-    padding: 10px 0;
-}
-
-.menu-list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
-
-.menu-item {
-    position: relative;
-    padding: 10px 20px;
-    font-size: 18px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.menu-item:hover {
-    background-color: #666666;
-}
-
-.submenu {
-    list-style: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    background-color: #808080;
-    padding: 10px 0;
-    margin: 0;
-    width: 200px;
-}
-
-.submenu-item {
-    padding: 10px 20px;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.submenu-item:hover {
-    background-color: #666666;
-}
-
-.menu-item:hover .submenu {
-    display: block;
-}
-/* === Giriş / Kayıt Alanı Kutusu (Güncellenmiş) === */
-.auth-container {
-    position: absolute;
-    top: 120px;
-    right: 30px;
-    width: 300px;
-    background: #f9f9f9;
-    padding: 20px;
-    border: 2px solid #FFD700;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 999;
-    display: flex; /* İç öğeleri alt alta sıralamak için */
-    flex-direction: column;
-    align-items: stretch; /* İç öğeleri genişlet */
-}
-
-.auth-container h3 {
-    margin-top: 0;
-    text-align: center;
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 10px; /* Boşluk bırak */
-}
-
-.auth-container input[type="text"],
-.auth-container input[type="password"],
-.auth-container input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 6px;
-}
-
-.auth-container input[type="submit"] {
-    background-color: #FFD700;
-    color: black;
-    font-weight: bold;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-}
-
-.auth-container input[type="submit"]:hover {
-    background-color: #e6c200;
-}
-
-.auth-toggle {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
-}
-
-.auth-toggle button {
-    background-color: transparent;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 6px 10px;
-    transition: color 0.2s ease;
-}
-
-.auth-toggle button:hover {
-    color: #FFD700;
-}
-
-.auth-form {
-    display: none;
-}
-
-.auth-form.active {
-    display: block;
-}
-
-/* === Hoş Geldiniz Alanı (Pop-up İçinde) === */
-.welcome-container {
-    display: none; /* Başlangıçta gizle */
-    padding: 10px 0;
-    text-align: center;
-    font-weight: bold;
-    color: #28a745;
-    border-top: 1px solid #ddd; /* Üst çizgi ekle */
-    margin-top: 10px; /* Üst boşluk */
-}
-
-.welcome-container.show-static {
-    display: block; /* Giriş yapıldığında göster */
-}
-
-.welcome-small {
-    font-size: 1.1em;
-}
-
-/* === Giriş Yapıldıktan Sonraki Stil (auth-container sabit kalsın) === */
-.auth-container.logged-in-static {
-    /* Pop-up sabit kalsın, sadece içeriği değişecek */
-}
-
-/* === Response Mesajları === */
-.response-message {
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-}
-.response-message.success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-.response-message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-/* GECE MODU */
-body {
-    background-color: #fff;
-    color: #000;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.gece-modu {
-    background-color: #333;
-    color: #f0f0f0;
-}
-
-/* Ek olarak, bazı öğelerin stillerini gece modunda değiştirebiliriz */
-body.gece-modu #markaFont {
-    background-color: #555;
-    color: #fff;
-}
-
-body.gece-modu .category-menu {
-    background-color: #444;
-}
-
-body.gece-modu .menu-item,
-body.gece-modu .submenu {
-    background-color: #444;
-    color: #fff;
-}
-
-body.gece-modu .menu-item:hover,
-body.gece-modu .submenu-item:hover {
-    background-color: #666;
-}
-
-/* Mod Değiştirici Buton Stilleri */
-.mod-degistirici {
-    display: flex;
-    align-items: center;
-}
-
-.mod-degistirici button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #555;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.mod-degistirici button:hover {
-    color: #888;
-}
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     background-color: #FFD700;
+     padding: 15px 5%;
+     width: 90%;
+     max-width: 1400px;
+     height: 100px;
+     margin: 0 auto;
+     gap: 20px;
+ }
+ 
+ #marka {
+     font-family: 'Anton', sans-serif;
+     font-size: 64px;
+     color: white;
+     text-shadow: -4px -4px 0 black,
+                   4px -4px 0 black,
+                  -4px  4px 0 black,
+                   4px  4px 0 black;
+     flex-shrink: 0;
+ }
+ 
+ #slogan {
+     font-size: 28px;
+     font-weight: bold;
+     color: white;
+     text-shadow: -1px -1px 0 black,
+                   1px -1px 0 black,
+                  -1px  1px 0 black,
+                   1px  1px 0 black;
+     flex-shrink: 0;
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+ }
+ 
+ .arama-cubugu {
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     transition: width 0.3s ease;
+     flex-grow: 1;
+ }
+ 
+ .arama-cubugu-input {
+     padding: 10px;
+     font-size: 16px;
+     border-radius: 10px;
+     border: 2px solid #333;
+     width: 200px;
+     margin-top: 5px;
+     transition: width 0.3s ease;
+ }
+ 
+ .arama-cubugu-input:hover {
+     width: 350px;
+ }
+ 
+ .arama-cubugu-input::placeholder {
+     color: #aaa;
+ }
+ 
+ .category-menu {
+     background-color: #808080;
+     padding: 10px 0;
+     margin-top: 50px;
+     width: 100%;
+     box-sizing: border-box;
+ }
+ 
+ .menu-list {
+     list-style: none;
+     display: flex;
+     justify-content: center;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     box-sizing: border-box;
+ }
+ 
+ .menu-item {
+     position: relative;
+     padding: 10px 20px;
+     font-size: 18px;
+     color: white;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+ }
+ 
+ .menu-item:hover {
+     background-color: #666666;
+ }
+ 
+ .submenu {
+     list-style: none;
+     position: absolute;
+     top: 100%;
+     left: 0;
+     display: none;
+     background-color: #808080;
+     padding: 10px 0;
+     margin: 0;
+     width: 200px;
+     box-sizing: border-box;
+ }
+ 
+ .submenu-item {
+     padding: 10px 20px;
+     color: white;
+     cursor: pointer;
+     font-size: 16px;
+     box-sizing: border-box;
+ }
+ 
+ .submenu-item:hover {
+     background-color: #666666;
+ }
+ 
+ .menu-item:hover .submenu {
+     display: block;
+ }
+ 
+ 
+ 
+ /* GECE MODU */
+ body {
+     background-color: #fff;
+     color: #000;
+     transition: background-color 0.3s ease, color 0.3s ease;
+     width: 100%;
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+ 
+ body.gece-modu {
+     background-color: #333;
+     color: #f0f0f0;
+ }
+ 
+ /* Ek olarak, bazı öğelerin stillerini gece modunda değiştirebiliriz */
+ body.gece-modu #markaFont {
+     background-color: #555;
+     color: #fff;
+ }
+ 
+ body.gece-modu .category-menu {
+     background-color: #444;
+ }
+ 
+ body.gece-modu .menu-item,
+ body.gece-modu .submenu {
+     background-color: #444;
+     color: #fff;
+ }
+ 
+ body.gece-modu .menu-item:hover,
+ body.gece-modu .submenu-item:hover {
+     background-color: #666;
+ }
+ 
+ /* Mod Değiştirici Buton Stilleri */
+ .mod-degistirici {
+     display: flex;
+     align-items: center;
+ }
+ 
+ .mod-degistirici button {
+     background: none;
+     border: none;
+     font-size: 24px;
+     color: #555;
+     cursor: pointer;
+     margin-left: 10px;
+ }
+ 
+ .mod-degistirici button:hover {
+     color: #888;
+ }
+ a {
+   color: white;
+   text-decoration: none;
+ }
+ 
+ a:hover {
+   color: white;
+   text-decoration: none ;
+ }
+ 
+         .orta-resim-alani {
+             display: flex;
+             justify-content: center;
+             margin: 20px auto;
+             width: 80%;
+             max-width: 1200px;
+             box-sizing: border-box;
+         }
+ 
+         .orta-resim-alani img {
+             display: block;
+             max-width: 100%;
+             height: auto;
+             border-radius: 8px;
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+             box-sizing: border-box;
+         }
+ 
+ /* Kargo Animasyonu için CSS */
+.kargo-container {
+     position: absolute;
+     top: 120px;
+     left: 0;
+     width: 100%;
+     height: 60px;
+     overflow: hidden;
+     box-sizing: border-box;
+     display: flex;
+     align-items: center;
+     z-index: 10;
+ }
+ 
+ #kargo-araci {
+     position: absolute;
+     left: -100px;
+     bottom: 0;
+     height: 50px;
+     transition: left 5s linear;
+     box-sizing: border-box;
+ }
+ 
+ #kargo-yazisi {
+     position: absolute;
+     left: -50%; /* Başlangıç konumu */
+     font-size: 20px;
+     font-weight: bold;
+     color: #000;
+     transition: left 5s linear, opacity 0.3s ease-in-out;
+     white-space: nowrap;
+     box-sizing: border-box;
+     opacity: 0; /* Başlangıçta görünmez */
+ }
