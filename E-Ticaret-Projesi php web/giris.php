@@ -2,7 +2,7 @@
  session_start();
  
  if (isset($_SESSION['username'])) {
-     header("Location: index.php"); // Kullanıcı zaten giriş yapmışsa ana sayfaya yönlendir
+     header("Location: index.php"); 
      exit();
  }
  
@@ -10,13 +10,12 @@
      $username = $_POST["username"];
      $password = $_POST["password"];
  
-     // Veritabanı kontrolü veya sabit kullanıcı kontrolü burada yapılacak
-     $validUsername = "testuser"; // Örnek kullanıcı
-     $validPassword = "testpass"; // Örnek şifre
+     $validUsername = "testuser"; 
+     $validPassword = "testpass"; 
  
      if ($username === $validUsername && $password === $validPassword) {
          $_SESSION['username'] = $username;
-         header("Location: index.php"); // Giriş başarılıysa ana sayfaya yönlendir
+         header("Location: index.php"); 
          exit();
      } else {
          $error = "Yanlış kullanıcı adı veya şifre.";
@@ -122,7 +121,7 @@
              <input type="password" id="password" name="password" required>
              <button type="submit">Giriş</button>
          </form>
-         <p><a href="kayit_sayfasi.php">Kayıt Ol</a></p>
+         <p><a href="kayit.php">Kayıt Ol</a></p>
      </div>
  </body>
  </html>

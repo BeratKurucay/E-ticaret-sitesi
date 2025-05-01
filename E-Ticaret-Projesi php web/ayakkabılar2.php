@@ -81,70 +81,42 @@ session_start();
     <button id="popup-kapat" style="margin-top:20px; padding:10px 20px; background:#4CAF50; color:white; border:none; border-radius:5px;">Kapat</button>
   </div>
 </div>
-<!-- SLIDER -->
-<section class="hero-slider">
-  <div class="slider-wrapper">
-    <div class="slide aktif">
-      <img src="https://i.hizliresim.com/h8hbpw4.png" alt="Yeni Sezon Kadın">
-    </div>
-    <div class="slide">
-      <img src="https://i.hizliresim.com/6ak5bwo.png" alt="Erkek Giyim Koleksiyonu">
-    </div>
-    <div class="slide">
-      <img src="https://i.hizliresim.com/r4ly40c.png" alt="Çocuk Giyim Kampanyası">
-    </div>
-    <div class="slide">
-      <img src="https://i.hizliresim.com/6wr5uie.jpg" alt="Çocuk2 Giyim Kampanyası">
-    </div>
-    <div class="slide">
-      <img src="https://i.hizliresim.com/ad69l42.jpg" alt="Çocuk3 Giyim Kampanyası">
-    </div>
-  </div>
-</section>
-
-<section class="kategori-alani">
-  <div class="kategori-kart">
-    <h3>Kadın</h3>
-    <a href="#">Ürünleri Gör</a>
-  </div>
-  <div class="kategori-kart">
-    <h3>Erkek</h3>
-    <a href="#">Ürünleri Gör</a>
-  </div>
-  <div class="kategori-kart">
-    <h3>Çocuk</h3>
-    <a href="#">Ürünleri Gör</a>
-  </div>
-  <div class="kategori-kart">
-    <h3>Aksesuar</h3>
-    <a href="#">Ürünleri Gör</a>
-  </div>
-</section>
 
 <section class="urunler-bolumu">
-  <h2>Öne Çıkan Ürünler</h2>
-  <div class="urunler-grid">
-    <div class="urun-karti">
-      <img src="https://i.hizliresim.com/55xccl1.jpg" alt="Elbise">
-      <h4>Şık Yazlık Elbise</h4>
-      <p>499 TL</p>
-      <button class="sepete-ekle" data-isim="Şık Yazlık Elbise" data-fiyat="499">Sepete Ekle</button>
+    <h2>Erkek Ayakkabıları</h2>
+    <div class="urunler-grid">
+        <div class="urun-karti">
+            <img src="" alt="Erkek Spor Ayakkabı">
+            <h4>Günlük Erkek Spor Ayakkabı</h4>
+            <p>599 TL</p>
+            <button class="sepete-ekle" data-isim="Günlük Erkek Spor Ayakkabı" data-fiyat="599">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Erkek Klasik Ayakkabı">
+            <h4>Deri Erkek Klasik Ayakkabı</h4>
+            <p>749 TL</p>
+            <button class="sepete-ekle" data-isim="Deri Erkek Klasik Ayakkabı" data-fiyat="749">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Erkek Bot">
+            <h4>Erkek Kışlık Bot</h4>
+            <p>699 TL</p>
+            <button class="sepete-ekle" data-isim="Erkek Kışlık Bot" data-fiyat="699">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Erkek Günlük Ayakkabı">
+            <h4>Rahat Erkek Günlük Ayakkabı</h4>
+            <p>449 TL</p>
+            <button class="sepete-ekle" data-isim="Rahat Erkek Günlük Ayakkabı" data-fiyat="449">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Erkek Sneaker">
+            <h4>Trend Erkek Sneaker</h4>
+            <p>649 TL</p>
+            <button class="sepete-ekle" data-isim="Trend Erkek Sneaker" data-fiyat="649">Sepete Ekle</button>
+        </div>
     </div>
-    <div class="urun-karti">
-      <img src="https://i.hizliresim.com/jck8u9h.jpg" alt="Gömlek">
-      <h4>Klasik Erkek Gömlek</h4>
-      <p>299 TL</p>
-      <button class="sepete-ekle" data-isim="Klasik Erkek Gömlek" data-fiyat="299">Sepete Ekle</button>
-    </div>
-    <div class="urun-karti">
-      <img src="https://i.hizliresim.com/by96lho.jpg" alt="Çocuk Tişört">
-      <h4>Renkli Çocuk Tişörtü</h4>
-      <p>149 TL</p>
-      <button class="sepete-ekle" data-isim="Renkli Çocuk Tişörtü" data-fiyat="149">Sepete Ekle</button>
-    </div>
-  </div>
 </section>
-
 <script>
    document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll(".slide");

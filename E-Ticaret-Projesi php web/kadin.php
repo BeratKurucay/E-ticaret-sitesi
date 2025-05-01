@@ -81,68 +81,141 @@ session_start();
     <button id="popup-kapat" style="margin-top:20px; padding:10px 20px; background:#4CAF50; color:white; border:none; border-radius:5px;">Kapat</button>
   </div>
 </div>
-<!-- SLIDER -->
-<section class="hero-slider">
-  <div class="slider-wrapper">
-    <div class="slide aktif">
-      <img src="https://i.hizliresim.com/h8hbpw4.png" alt="Yeni Sezon Kadın">
-    </div>
-    <div class="slide">
-      <img src="https://i.hizliresim.com/6ak5bwo.png" alt="Erkek Giyim Koleksiyonu">
-    </div>
-    <div class="slide">
-      <img src="https://i.hizliresim.com/r4ly40c.png" alt="Çocuk Giyim Kampanyası">
-    </div>
-    <div class="slide">
-      <img src="https://i.hizliresim.com/6wr5uie.jpg" alt="Çocuk2 Giyim Kampanyası">
-    </div>
-    <div class="slide">
-      <img src="https://i.hizliresim.com/ad69l42.jpg" alt="Çocuk3 Giyim Kampanyası">
-    </div>
-  </div>
-</section>
 
-<section class="kategori-alani">
-  <div class="kategori-kart">
-    <h3>Kadın</h3>
-    <a href="#">Ürünleri Gör</a>
-  </div>
-  <div class="kategori-kart">
-    <h3>Erkek</h3>
-    <a href="#">Ürünleri Gör</a>
-  </div>
-  <div class="kategori-kart">
-    <h3>Çocuk</h3>
-    <a href="#">Ürünleri Gör</a>
-  </div>
-  <div class="kategori-kart">
-    <h3>Aksesuar</h3>
-    <a href="#">Ürünleri Gör</a>
-  </div>
-</section>
 
 <section class="urunler-bolumu">
-  <h2>Öne Çıkan Ürünler</h2>
-  <div class="urunler-grid">
-    <div class="urun-karti">
-      <img src="https://i.hizliresim.com/55xccl1.jpg" alt="Elbise">
-      <h4>Şık Yazlık Elbise</h4>
-      <p>499 TL</p>
-      <button class="sepete-ekle" data-isim="Şık Yazlık Elbise" data-fiyat="499">Sepete Ekle</button>
+  <h2>Aksesuarlar</h2>
+    <div class="urunler-grid">
+        <div class="urun-karti">
+            <img src="" alt="Kolye">
+            <h4>Şık Zincir Kolye</h4>
+            <p>199 TL</p>
+            <button class="sepete-ekle" data-isim="Şık Zincir Kolye" data-fiyat="199">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Bileklik">
+            <h4>Deri Bileklik</h4>
+            <p>149 TL</p>
+            <button class="sepete-ekle" data-isim="Deri Bileklik" data-fiyat="149">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Küpe">
+            <h4>Taşlı Küpe</h4>
+            <p>99 TL</p>
+            <button class="sepete-ekle" data-isim="Taşlı Küpe" data-fiyat="99">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Şapka">
+            <h4>Trend Beyzbol Şapkası</h4>
+            <p>129 TL</p>
+            <button class="sepete-ekle" data-isim="Trend Beyzbol Şapkası" data-fiyat="129">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Güneş Gözlüğü">
+            <h4>Stil Sahibi Güneş Gözlüğü</h4>
+            <p>299 TL</p>
+            <button class="sepete-ekle" data-isim="Stil Sahibi Güneş Gözlüğü" data-fiyat="299">Sepete Ekle</button>
+        </div>
     </div>
-    <div class="urun-karti">
-      <img src="https://i.hizliresim.com/jck8u9h.jpg" alt="Gömlek">
-      <h4>Klasik Erkek Gömlek</h4>
-      <p>299 TL</p>
-      <button class="sepete-ekle" data-isim="Klasik Erkek Gömlek" data-fiyat="299">Sepete Ekle</button>
+  <h2>Çantalar</h2>
+    <div class="urunler-grid">
+        <div class="urun-karti">
+            <img src="" alt="Omuz Çantası">
+            <h4>Şık Omuz Çantası</h4>
+            <p>449 TL</p>
+            <button class="sepete-ekle" data-isim="Şık Omuz Çantası" data-fiyat="449">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Sırt Çantası">
+            <h4>Fonksiyonel Sırt Çantası</h4>
+            <p>599 TL</p>
+            <button class="sepete-ekle" data-isim="Fonksiyonel Sırt Çantası" data-fiyat="599">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="El Çantası">
+            <h4>Zarif El Çantası</h4>
+            <p>699 TL</p>
+            <button class="sepete-ekle" data-isim="Zarif El Çantası" data-fiyat="699">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Postacı Çantası">
+            <h4>Trend Postacı Çantası</h4>
+            <p>399 TL</p>
+            <button class="sepete-ekle" data-isim="Trend Postacı Çantası" data-fiyat="399">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Cüzdan">
+            <h4>Minimalist Cüzdan</h4>
+            <p>249 TL</p>
+            <button class="sepete-ekle" data-isim="Minimalist Cüzdan" data-fiyat="249">Sepete Ekle</button>
+        </div>
     </div>
-    <div class="urun-karti">
-      <img src="https://i.hizliresim.com/by96lho.jpg" alt="Çocuk Tişört">
-      <h4>Renkli Çocuk Tişörtü</h4>
-      <p>149 TL</p>
-      <button class="sepete-ekle" data-isim="Renkli Çocuk Tişörtü" data-fiyat="149">Sepete Ekle</button>
+  <h2>Kadın Elbiseleri</h2>
+    <div class="urunler-grid">
+        <div class="urun-karti">
+            <img src="" alt="Yazlık Elbise">
+            <h4>Şık Yazlık Elbise</h4>
+            <p>499 TL</p>
+            <button class="sepete-ekle" data-isim="Şık Yazlık Elbise" data-fiyat="499">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Abiye Elbise">
+            <h4>Zarif Abiye Elbise</h4>
+            <p>799 TL</p>
+            <button class="sepete-ekle" data-isim="Zarif Abiye Elbise" data-fiyat="799">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Günlük Elbise">
+            <h4>Rahat Günlük Elbise</h4>
+            <p>299 TL</p>
+            <button class="sepete-ekle" data-isim="Rahat Günlük Elbise" data-fiyat="299">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Desenli Elbise">
+            <h4>Çiçek Desenli Elbise</h4>
+            <p>399 TL</p>
+            <button class="sepete-ekle" data-isim="Çiçek Desenli Elbise" data-fiyat="399">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Mini Elbise">
+            <h4>Trend Mini Elbise</h4>
+            <p>349 TL</p>
+            <button class="sepete-ekle" data-isim="Trend Mini Elbise" data-fiyat="349">Sepete Ekle</button>
+        </div>
     </div>
-  </div>
+    <h2>Ayakkabılar</h2>
+    <div class="urunler-grid">
+        <div class="urun-karti">
+            <img src="" alt="Spor Ayakkabı">
+            <h4>Günlük Spor Ayakkabı</h4>
+            <p>549 TL</p>
+            <button class="sepete-ekle" data-isim="Günlük Spor Ayakkabı" data-fiyat="549">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Topuklu Ayakkabı">
+            <h4>Şık Topuklu Ayakkabı</h4>
+            <p>899 TL</p>
+            <button class="sepete-ekle" data-isim="Şık Topuklu Ayakkabı" data-fiyat="899">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Sneaker">
+            <h4>Trend Sneaker</h4>
+            <p>699 TL</p>
+            <button class="sepete-ekle" data-isim="Trend Sneaker" data-fiyat="699">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Bot">
+            <h4>Konforlu Kışlık Bot</h4>
+            <p>749 TL</p>
+            <button class="sepete-ekle" data-isim="Konforlu Kışlık Bot" data-fiyat="749">Sepete Ekle</button>
+        </div>
+        <div class="urun-karti">
+            <img src="" alt="Sandalet">
+            <h4>Yazlık Rahat Sandalet</h4>
+            <p>399 TL</p>
+            <button class="sepete-ekle" data-isim="Yazlık Rahat Sandalet" data-fiyat="399">Sepete Ekle</button>
+        </div>
+    </div>
 </section>
 
 <script>
