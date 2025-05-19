@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ürün Detayı</title>
+    <link rel="stylesheet" href="E-Ticaret.css">
+</head>
+<body>
+
+<?php include("partials/header.php"); ?>  
+<?php include("partials/menu.php"); ?>
+
+
+
+<section class="sepet-alani" id="orta-sepet" style="display:none; position:relative;">
+  <button id="orta-sepet-kapat" style="position:absolute; top:10px; right:10px; background:red; color:white; border:none; border-radius:50%; width:30px; height:30px; cursor:pointer;">X</button>
+  <h2>Sepetiniz</h2>
+  <ul id="sepet-listesi"></ul>
+</section>
+
+<div id="sepet-popup" style="display:none; position:fixed; top:70px; right:20px; width:300px; background:white; border:1px solid #ccc; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.2); z-index:9999; padding:20px;">
+  <div style="text-align:right;">
+    <button id="mini-sepet-kapat" style="background:red; color:white; border:none; border-radius:4px; padding:5px 10px;">X</button>
+  </div>
+  <h3>Sepetiniz</h3>
+  <ul id="sepet-popup-listesi" style="list-style:none; padding:0; margin-top:10px;"></ul>
+  
+</div>
+
+<div id="musteri-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:9999;">
+  <div style="background:white; padding:30px; border-radius:10px; text-align:center; max-width:500px; width:90%;">
+    <h2>Müşteri Bilgileri</h2>
+    <form id="musteri-formu">
+      <input type="text" id="adsoyad" placeholder="İsim Soyisim" required style="margin:10px; padding:10px; width:90%;"><br>
+      <input type="email" id="email" placeholder="E-Posta" required style="margin:10px; padding:10px; width:90%;"><br>
+      <input type="tel" id="telefon" placeholder="Telefon (05XXXXXXXXX)" required style="margin:10px; padding:10px; width:90%;"><br>
+      <textarea id="adres" placeholder="Teslimat Adresi" required style="margin:10px; padding:10px; width:90%; height:80px;"></textarea><br>
+      <button type="submit" style="background:green; color:white; padding:10px 30px; margin-top:10px; border-radius:6px;">Devam Et</button>
+    </form>
+    <button id="musteri-kapat" style="margin-top:15px; background:red; color:white; padding:8px 20px; border-radius:5px;">Vazgeç</button>
+  </div>
+</div>
+<div id="sepetModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
+    <div id="sepetModalContent"></div>
+</div>
+
+<div id="kart-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:9999;">
+  <div style="background:white; padding:30px; border-radius:10px; text-align:center; max-width:500px; width:90%;">
+    <h2>Kredi Kartı Bilgileri</h2>
+    <form id="kart-formu">
+      <input type="text" id="kart-ad" placeholder="Kart Üzerindeki İsim" required style="margin:10px; padding:10px; width:90%;"><br>
+      <input type="text" id="kart-numara" placeholder="Kart Numarası (16 hane)" maxlength="16" required style="margin:10px; padding:10px; width:90%;"><br>
+      <input type="text" id="kart-ay" placeholder="Ay (MM)" maxlength="2" required style="margin:10px; padding:10px; width:43%; display:inline-block;">
+      <input type="text" id="kart-yil" placeholder="Yıl (YY)" maxlength="2" required style="margin:10px; padding:10px; width:43%; display:inline-block;"><br>
+      <input type="text" id="kart-cvv" placeholder="CVV (3 hane)" maxlength="3" required style="margin:10px; padding:10px; width:90%;"><br>
+      <button type="submit" style="background:green; color:white; padding:10px 30px; margin-top:10px; border-radius:6px;">Ödemeyi Tamamla</button>
+    </form>
+    <button id="kart-kapat" style="margin-top:15px; background:red; color:white; padding:8px 20px; border-radius:5px;">Vazgeç</button>
+  </div>
+</div>
+
+
+
+
+<div class="urun-detay">
+    <?php
+    $urun_id = $_GET['id'];
+    $urun = [
+        'ad' => 'Düz Renk Klasik Gömlek',
+        'fiyat' => 279,
+        'resim' => [
+            'https://i.hizliresim.com/rm92gmo.png',
+            'https://i.hizliresim.com/cedu2y1.png',
+            'https://i.hizliresim.com/ptld0e0.png'
+        ],
+        'aciklama' => 'Bu şık gömlek, gardırobunuzun vazgeçilmezi olacak.',
+        'bedenler' => ['S', 'M', 'L', 'XL'],
+        'renkler' => ['Beyaz', 'Mavi', 'Siyah'],
+        'ortalama_yildiz' => 4.5,
+        'yorumlar' => [
+            ['kullanici' => 'Ahmet', 'yorum' => 'Çok kaliteli.', 'yildiz' => 5],
+            ['kullanici' => 'Ayşe', 'yorum' => 'Biraz dar kesim.', 'yildiz' => 4]
+        ]
+    ];
+    ?>
+
+    <div class="urun-slider-container zoom-container">
+        <?php foreach ($urun['resim'] as $index => $resim): ?>
+            <img src="<?php echo htmlspecialchars($resim); ?>" class="<?php echo $index === 0 ? 'active' : ''; ?>">
+        <?php endforeach; ?>
+        <div class="zoom-lens"></div>
+        <button class="urun-slider-btn left">&#9664;</button>
+        <button class="urun-slider-btn right">&#9654;</button>
+    </div>
+
+    <h2><?php echo htmlspecialchars($urun['ad']); ?></h2>
+    <p><?php echo htmlspecialchars($urun['aciklama']); ?></p>
+    <p class="fiyat"><?php echo htmlspecialchars($urun['fiyat']); ?> TL</p>
+
+    <div class="secenekler">
+        <div>
+            <label for="beden">Beden:</label>
+            <select id="beden" name="beden">
+                <?php foreach ($urun['bedenler'] as $beden): ?>
+                    <option value="<?php echo htmlspecialchars($beden); ?>"><?php echo htmlspecialchars($beden); ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div>
+            <label for="renk">Renk:</label>
+            <select id="renk" name="renk">
+                <?php foreach ($urun['renkler'] as $renk): ?>
+                    <option value="<?php echo htmlspecialchars($renk); ?>"><?php echo htmlspecialchars($renk); ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="yorumlar">
+        <h3>Müşteri Yorumları (Ortalama Yıldız: <?php echo htmlspecialchars($urun['ortalama_yildiz']); ?>)</h3>
+        <?php foreach ($urun['yorumlar'] as $yorum): ?>
+            <div class="yorum">
+                <p><strong><?php echo htmlspecialchars($yorum['kullanici']); ?>:</strong>
+                <?php echo htmlspecialchars($yorum['yorum']); ?> (<?php echo htmlspecialchars($yorum['yildiz']); ?> Yıldız)</p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+  <button id="odeme-yap" style="padding: 12px 30px; font-size: 18px; background: #4CAF50; color: white; border-radius: 8px; border: none; cursor: pointer;">HEMEN AL</button>
+</div>
+
+<div id="odeme-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:9999;">
+    <div style="background:white; padding:30px; border-radius:10px; text-align:center; max-width:500px; width:90%;">
+        <h2>Ödeme Bilgileri</h2>
+        <form id="odeme-form">
+            <input type="text" name="adsoyad" placeholder="Ad Soyad" required style="margin:10px; padding:10px; width:80%;"><br>
+            <input type="text" name="kartno" placeholder="Kart Numarası" required style="margin:10px; padding:10px; width:80%;"><br>
+            <input type="text" name="sktt" placeholder="SKT (AA/YY)" required style="margin:10px; padding:10px; width:80%;"><br>
+            <input type="text" name="cvv" placeholder="CVV" required style="margin:10px; padding:10px; width:80%;"><br>
+            <button type="submit" style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">Ödemeyi Tamamla</button>
+        </form>
+        <button id="odeme-popup-kapat" style="margin-top:15px; background:red; color:white; border:none; padding:5px 15px; border-radius:5px;">İptal</button>
+    </div>
+</div>
+
+
+    <button class="sepete-ekle" 
+        data-isim="<?php echo htmlspecialchars($urun['ad']); ?>" 
+        data-fiyat="<?php echo htmlspecialchars($urun['fiyat']); ?>" 
+        data-resim="<?php echo htmlspecialchars($urun['resim'][0]); ?>">
+        Sepete Ekle
+    </button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      sliderWrapper.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 4000); // Her 4 saniyede bir geçiş
+  });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const sepeteEkleButonlari = document.querySelectorAll('.sepete-ekle');
+  const odemeYapButonu = document.getElementById('odeme-yap');
+  const musteriPopup = document.getElementById('musteri-popup');
+  const kartPopup = document.getElementById('kart-popup');
+  const musteriFormu = document.getElementById('musteri-formu');
+  const kartFormu = document.getElementById('kart-formu');
+  const musteriKapat = document.getElementById('musteri-kapat');
+  const kartKapat = document.getElementById('kart-kapat');
+  const ortaSepet = document.getElementById('orta-sepet');
+  const ortaSepetKapat = document.getElementById('orta-sepet-kapat');
+  const sepetAcButon = document.getElementById('sepet-ac');
+  const sepetListesi = document.getElementById('sepet-listesi');
+
+  let currentSlide = 0;
+  let slides = document.querySelectorAll('.slide');
+  let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+
+  const showToast = (msg, duration = 3000) => {
+    const toast = document.createElement('div');
+    toast.textContent = msg;
+    toast.style.position = 'fixed';
+    toast.style.bottom = '30px';
+    toast.style.right = '30px';
+    toast.style.backgroundColor = '#323232';
+    toast.style.color = '#fff';
+    toast.style.padding = '10px 20px';
+    toast.style.borderRadius = '6px';
+    toast.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+    toast.style.zIndex = 10000;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), duration);
+  };
+
+  function nextSlide() {
+    slides[currentSlide].classList.remove('aktif');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('aktif');
+  }
+  setInterval(nextSlide, 4000);
+
+  function sepetiGuncelle() {
+    sepetListesi.innerHTML = '';
+    if (sepet.length === 0) {
+      odemeYapButonu.style.display = 'none';
+      return;
+    }
+    let toplamFiyat = 0;
+    sepet.forEach(function (urun, index) {
+      toplamFiyat += urun.adet * urun.fiyat;
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img src="${urun.resim}" style="width:50px; height:50px; object-fit:cover; border-radius:5px;">
+          <div>
+            <strong>${urun.ad}</strong><br>
+            ${urun.fiyat} TL x ${urun.adet} = <strong>${(urun.fiyat * urun.adet).toFixed(2)} TL</strong><br>
+            <button title="Azalt" class="azalt" data-index="${index}" style="margin-top:5px;">-</button>
+            <button title="Arttır" class="arttir" data-index="${index}" style="margin-top:5px;">+</button>
+            <button title="Sil" class="sil" data-index="${index}" style="background:red; color:white; margin-top:5px;">Sil</button>
+          </div>
+        </div>
+      `;
+      sepetListesi.appendChild(li);
+    });
+
+    const toplamLi = document.createElement('li');
+    toplamLi.innerHTML = `
+      <div style="margin-top:20px; text-align:center;">
+        <strong>Toplam Tutar: ${toplamFiyat.toFixed(2)} TL</strong><br><br>
+        <button id="odeme-yap" style="padding: 12px 30px; font-size: 18px; background: #4CAF50; color: white; border-radius: 8px; border: none; cursor: pointer;">HEMEN AL</button> <br><br>
+        <button id="siparis-iptal" style="background: darkred; color: white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-size:16px;">🛑 Siparişimi İptal Et</button>
+      </div>
+    `;
+    toplamLi.style.marginTop = '10px';
+    toplamLi.style.borderTop = '1px solid #ccc';
+    toplamLi.style.paddingTop = '10px';
+    sepetListesi.appendChild(toplamLi);
+
+    localStorage.setItem('sepet', JSON.stringify(sepet));
+
+    const siparisIptalButonu = document.getElementById('siparis-iptal');
+    if (siparisIptalButonu) {
+      siparisIptalButonu.addEventListener('click', function () {
+        if (confirm('Tüm siparişi iptal etmek istediğinize emin misiniz?')) {
+          sepet = [];
+          localStorage.removeItem('sepet');
+          ortaSepet.style.display = 'none';
+          odemeYapButonu.style.display = 'none';
+          showToast('Siparişiniz iptal edildi.');
+          sepetiGuncelle();
+        }
+      });
+    }
+  }
+
+  sepeteEkleButonlari.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const isim = this.getAttribute('data-isim');
+      const fiyat = parseFloat(this.getAttribute('data-fiyat'));
+      const resim = this.parentElement.querySelector('img').src;
+      const mevcutUrun = sepet.find(urun => urun.ad === isim);
+
+      if (mevcutUrun) {
+        mevcutUrun.adet++;
+      } else {
+        sepet.push({ ad: isim, fiyat: fiyat, adet: 1, resim: resim });
+      }
+
+      showToast(`${isim} sepete eklendi.`);
+      sepetiGuncelle();
+    });
+  });
+
+  sepetListesi.addEventListener('click', function (e) {
+    const index = e.target.getAttribute('data-index');
+    if (!index) return;
+
+    if (e.target.classList.contains('azalt')) {
+      sepet[index].adet--;
+      if (sepet[index].adet <= 0) sepet.splice(index, 1);
+    } else if (e.target.classList.contains('arttir')) {
+      sepet[index].adet++;
+    } else if (e.target.classList.contains('sil')) {
+      sepet.splice(index, 1);
+    }
+    sepetiGuncelle();
+  });
+
+  odemeYapButonu.addEventListener('click', function () {
+    if (sepet.length === 0) {
+      alert("Sepetiniz boş!");
+    } else {
+      musteriPopup.style.display = 'flex';
+    }
+  });
+
+  musteriFormu.addEventListener('submit', function (e) {
+    e.preventDefault();
+    musteriPopup.style.display = 'none';
+    kartPopup.style.display = 'flex';
+  });
+
+  kartFormu.addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert("Ödeme başarılı! 🎉 Siparişiniz alınmıştır!");
+    sepet = [];
+    localStorage.removeItem('sepet');
+    kartPopup.style.display = 'none';
+    odemeYapButonu.style.display = 'none';
+    ortaSepet.style.display = 'none';
+    showToast('Ödeme başarılı. Siparişiniz alındı.');
+    sepetiGuncelle();
+  });
+
+  musteriKapat.addEventListener('click', function () {
+    musteriPopup.style.display = 'none';
+  });
+
+  kartKapat.addEventListener('click', function () {
+    kartPopup.style.display = 'none';
+  });
+
+  sepetAcButon.addEventListener('click', function () {
+    ortaSepet.style.display = 'block';
+    odemeYapButonu.style.display = 'inline-block';
+    window.scrollTo({ top: ortaSepet.offsetTop - 100, behavior: 'smooth' });
+  });
+
+  ortaSepetKapat?.addEventListener('click', function () {
+    ortaSepet.style.display = 'none';
+    odemeYapButonu.style.display = 'none';
+  });
+
+  sepetiGuncelle();
+});
+</script>
+
+<?php include("partials/footer.php"); ?>
+
+</body>
+</html>
